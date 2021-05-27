@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script type="text/javascript">
+           
+           //EVERY 
+
+           /*
+            Esta é uma função auxiliar bem interessante. Ao contrário das outras que vimos até então,
+            esta não retorna uma cópia do Array , mas sim um valor booleano.
+
+            A função every é pertinente para validar se todos os elementos de um Array respeitam uma dada condição.
+
+            */
+
+            //Objetivo: Saber se todos os alunos são maiores de idade
+
+            var alunos = [ 
+                {nome:'joão', idade: 18},
+                {nome:'maria', idade: 20},
+                {nome:'pedro', idade: 24}
+            ];
+
+            //com ECMA5
+            var todosAlunosDeMaior = true; 
+            for(var i = 0; i< alunos.length; i++) {
+                 if(alunos[i].idade < 18) { 
+                     todosAlunosDeMaior = false;
+                        break; 
+                }
+            }
+            console.log(todosAlunosDeMaior); 
+
+            var todosAlunosDeMaior = alunos.every(function (aluno){ 
+                return aluno.idade > 18; 
+            });
+
+
+ 
+ 
+      
+        </script>
+    
+</body>
+</html>

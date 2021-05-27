@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script type="text/javascript">
+            //FUNÇÕES 
+
+            /* 
+                Uma função é um conjunto de instruções que executa uma tarefa específica. 
+                Sendo que essa tarefa pode retornar um valor ou não. 
+            */
+
+            // EM JAVASCRIPT TEMOS 3 FORMAS DE SE DECLARAR UMA FUNÇÃO
+
+            // 1º FORMA: DECLARAÇÃO DE FUNÇÃO
+
+            function Desligar(){
+                //FAZ ALGUMA COISA;
+            }
+
+            //2ª FORMA: EXPRESSÃO DE FUNÇÃO
+
+            var funcaoDesligar = function(){
+                //faz alguma coisa
+            }
+
+            //3ª FORMA: CONSTRUTOR DE FUNÇÃO (MENOS UTILIZADA)
+            //sem parâmetros
+
+            var funcaoDesligar = new Function(/*'corpo da função'*/);
+         
+           
+
+            // Com ECMA 6 GANHAMOS MAIS UMA FORMA DE DECLARAR UMA FUNÇÃO EM JAVASCRIPT: ARROW FUNCTIONS
+
+            /* 
+                 A definição de uma arrow function é bem simples e segue esta ordem: 
+
+                 * Parâmetros dentro de parênteses (...);
+
+                 * Fat arrow (=>);
+
+                 * Corpo da função entre chaves ({...})
+            */
+
+            //Sintaxe: 
+            /*
+            (Param1, param2 ...., param n)=>{
+
+            }
+            */
+
+            /* 
+                Vantagens: 
+
+                * São menos verbosas;
+                * O contexto de execução é diferente; 
+            
+            */
+
+           var boasVindas = function(nome){
+               return "seja bem-vindo, " + nome;
+           }
+          boasVindas("Luiz");
+
+          var boasVindas = nome => "Seja bem-vindo, " + nome; 
+          boasVindas("Luiz");
+
+
+            //CONTEXTO DE EXECUÇÃO DIFERENTE (this)
+            /*
+            Sempre que executamos uma função no JavaScript, ela é associada a um contexto 
+            de execução.
+             Esse contexto possui uma propriedade denominada ThisBinding , que pode ser 
+             acessada a qualquer momento através da palavra reservada this.
+             O valor do this , que chamamos de contexto da função, é constante e existe 
+             enquanto este contexto de execução existir.
+           */
+
+           //Toda função também declarada no escopo global possui o objeto window como valor do this :
+
+           function imprimeMeuContextoDeExecucao() { console.log(this); }
+
+           //imprimeMeuContextoDeExecucao();
+
+           //Quando uma função representa um método de um objeto, o valor do this passa a ser o próprio objeto referenciado:
+
+           var objeto = {
+                meuContexto: function () {
+                     //console.log(this);
+                }
+            };
+            objeto.meuContexto(); 
+
+            //E no código abaixo: 
+         /*   
+           const equipe = {
+                 nome: 'Guerreiros Z',
+                 membros: [ 'Goku', 'Kuririn', 'Vegeta'],
+                 membrosDaEquipe: function() {
+                    console.log(this)
+                       this.membros.forEach(function(membro) { 
+                         
+                           console.log(`${membro} é da equipe ${this.nome}`);
+                       });
+                 } 
+            }
+            equipe.membrosDaEquipe();
+
+            /*  
+                    O Código acima não exibiu de forma correta porque: 
+
+                    O this dentro do callback guarda o valor do objeto pai da 
+                    função callback e não da função que recebe o callback 
+
+            
+
+            //1ª Forma de Resolver... Solução Malandriada 
+
+           const equipe = {
+                 nome: 'Guerreiros Z',
+                 membros: [ 'Goku', 'Kuririn', 'Vegeta'],
+                 membrosDaEquipe: function() {
+                        const that = this; 
+                       this.membros.forEach(function(membro) { 
+                           console.log(`${membro} é da equipe ${that.nome}`);
+                       });
+                 } 
+            }
+            equipe.membrosDaEquipe();
+    */
+            //2ª Forma utilizando o método bind(); 
+
+            /* 
+                Este método, introduzido no ES5, ao ser invocado, cria uma nova função 
+                com o mesmo corpo e escopo da função
+                 com que foi associado, mas com o this da função inicial.
+
+            
+            */
+/*          
+            const equipe = {
+                 nome: 'Guerreiros Z',
+                 membros: [ 'Goku', 'Kuririn', 'Vegeta'],
+                 membrosDaEquipe: function() {
+                       this.membros.forEach(function(membro) { 
+                           console.log(`${membro} é da equipe ${this.nome}`);
+                       }.bind(this));
+                 } 
+            }
+
+            equipe.membrosDaEquipe();
+        
+
+            //3ª Forma Utilizando Arrow Functions
+
+            /*
+                   Para resolver o problema de contexto sem ser refém de truques, 
+                   as arrow functions foram projetadas para conseguirmos 
+                   capturar o this do seu contexto delimitador
+                    (chamamos isso de escopo léxico da função).
+            */
+
+           const equipe = { 
+                nome: 'Guerreiros Z', 
+                membros: [ 'Goku', 'Kuririn', 'Vegeta'], 
+                membrosDaEquipe: function() {
+                     this.membros.forEach(membro => {
+                          console.log(`${membro} é da equipe ${this.nome}`);
+                     })
+                } 
+            }
+            
+ 
+        
+ 
+ 
+ 
+         </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <script type="text/javascript">
+           
+           //FIND
+
+           //Função utilizada quando queremos encontrar um item específico em um Array
+
+           // Objetivo: Encontrar o aluno com o nome José
+
+           var alunos = [ 
+               {
+                   nome:'joão'
+               },
+               {
+                   nome:'josé'
+               },
+               {
+                   nome:'maria'
+                } 
+
+            ];
+
+            //com ECMA 5 
+
+            var aluno; 
+            for(var i = 0; i < alunos.length; i++) {
+                 if(alunos[i].nome === 'josé') {
+                      aluno = alunos[i];
+                       break; // evita percorrer o resto da lista 
+                 }
+            }    
+            console.log(aluno); 
+            //ECMA 6
+            var aluno = alunos.find(function(aluno) { 
+                return aluno.nome === 'josé';
+             });
+
+
+
+     
+         </script>
+    
+</body>
+</html>

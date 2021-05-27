@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script type="text/javascript">
+           //SOME
+
+           /*
+           Se a tarefa é validar se, pelo menos, um dos elementos de um Array satisfaz uma dada condição,
+            o some é o método perfeito para o trabalho. */
+
+            var alunos = [ 
+                {nome:'joão', idade: 17},
+                {nome:'maria', idade: 20},
+                {nome:'pedro', idade: 24}
+            ];
+            
+
+            var alunoDeMenor = false; 
+            for(var i = 0; i < alunos.length; i++) { 
+                if(alunos[i].idade < 18) {
+                    alunoDeMenor = true;
+                }
+            }
+            
+            var alunoDeMenor = alunos.some(function(aluno) {
+                 return aluno.idade < 18;
+            });
+            console.log(alunoDeMenor);
+
+     
+         </script>
+</body>
+</html>

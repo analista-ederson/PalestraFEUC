@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script type="text/javascript">
+           //Função REDUCE
+
+           /*
+               A ideia por trás dela é pegar todos os valores de um Array e condensá-los em 
+               um único. 
+            */
+
+            var numeros = [1,2,3,4,5];
+            var soma = 0; 
+            for (var i = 0; i < numeros.length; i++) {
+                 soma += numeros[i];
+            }
+
+            //Com reduce 
+
+            var soma = 0; 
+            soma = numeros.reduce(function (soma,numero){
+                return soma + numero;
+            },0);
+
+            /* 
+                Diferentemente dos outros métodos vistos até agora, o reduce aceita 2 
+                parâmetros: 
+
+                function (soma, numero){...} -> função de iteração com 2 parâmetros;
+
+                0: valor inicial
+            */
+
+
+            //Temos a lista de alunos abaixo e queremos extrair somente os nomes
+            var alunos = [ 
+                {nome:'joão', idade: 10},
+                {nome:'josé', idade: 20},
+                {nome:'marcos', idade: 30}
+            ];
+
+            
+            var nomes = alunos.reduce(function(arrayNomes, aluno) {
+                arrayNomes.push(aluno.nome);
+                 return arrayNomes; 
+            }, []);
+            console.log(nomes);
+
+
+
+        </script>
+</body>
+</html>

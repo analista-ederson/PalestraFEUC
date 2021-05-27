@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script type="text/javascript">
+            /* Métodos Auxiliares Para Array */
+    
+           //MÉTODO MAP
+           /*
+           Utilizado não só quando precisamos passar por todos os elementos do array
+           mas também modificá-los
+           */
+
+           var numeros = [1,2,3]; 
+           var dobro = [];
+           // Com ECMA 5
+           for(var i=0; i<numeros.length; i++){
+                dobro.push(numeros[i]*2)
+           }
+
+           var dobro = numeros.map(function(numero) {
+                return numero * 2;
+           });
+           
+           /*O map executa a função de callback recebida por parâmetro para cada elemento iterado de numeros e 
+           constrói um novo Array com base nos retornos de cada uma das chamadas.
+            Como o map nos devolve uma outra instância de Array , a lista inicial nunca é realmente modificada,
+             o que mantém sua integridade.*/
+
+    
+        </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrays  </title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        /* Métodos Auxiliares Para Array */
+
+        /*
+           Existem uma infinidade mas vamos falar aqui dos mais utilizados. 
+        */
+
+        //Objetivo imprimir no console cada item do array abaixo; 
+        
+        var times = ["Flamengo", "Fluminense", "Botafogo"];
+        //COM ECMA5
+        for(var i=0; i<times.length; i++){
+            //console.log(times[i]);
+        }
+
+        //Utilizando forEach 
+       /* Repare no que aconteceu. Dentro do forEach, passamos uma função anônima de retorno, 
+        que costumamos chamar de função de callback. Ela é executada para cada elemento dentro da lista. */
+
+        times.forEach(function (time){
+                //console.log(time);
+        })
+
+        //Entretanto, a função de callback não precisa ser anônima
+        times.forEach(imprimeNome);
+
+        function imprimeNome(nome){
+                //console.log(nome);
+        }
+
+        /*
+            É preciso estar atento que os elementos processados pelo forEach são determinados antes da 
+            primeira invocação da funçao de callback. Sendo assim, no código abaixo o time Vasco não
+            será impresso. 
+        */
+        times.forEach(function (time){
+                times.push("Vasco");
+                //console.log(time);
+        })
+        console.log(times);
+
+        /*
+            E agora, Vasco foi ou não adicionado ao array? vamos ver o resultado da função console.log()
+    
+        */
+ 
+        console.log(times);
+        //utilizando Arrow Functions
+        //times.forEach((time)=>console.log(time));
+        
+
+
+       
+
+    </script>
+    
+</body>
+</html>
